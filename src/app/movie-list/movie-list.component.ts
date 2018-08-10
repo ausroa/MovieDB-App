@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, ViewChild, ElementRef} from '@angular/core';
 import {Movie} from './movie.model';
 
 @Component({
@@ -8,7 +8,9 @@ import {Movie} from './movie.model';
 })
 export class MovieListComponent implements OnInit {
   @Output() addMovie = new EventEmitter<Movie>();
-  @Output() removeMovie = new EventEmitter<boolean>();
+  @Output() removeMovie = new EventEmitter<void>();
+  @Output() clearMovie = new EventEmitter<void>();
+  @ViewChild('movieInput') movieRef: ElementRef;
   movie: Movie;
 
   constructor() { }
@@ -20,10 +22,17 @@ export class MovieListComponent implements OnInit {
   onAddMovie(movie) {
     this.movie = movie;
     this.addMovie.emit(movie);
+    this.movieRef.nativeElement.value = '';
   }
 
   onRemoveMovie() {
-    this.removeMovie.emit(true);
+    this.removeMovie.emit();
+    this.movieRef.nativeElement.value = '';
+  }
+
+  onClearMovie() {
+    this.clearMovie.emit();
+    this.movieRef.nativeElement.value = '';
   }
 }
 

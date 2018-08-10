@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Movie} from '../movie.model';
 
 @Component({
@@ -20,5 +20,9 @@ export class ListComponent implements OnInit {
 
   onRemove() {
     this.movies.splice(-1, 1);
+  }
+
+  onClear() {
+    this.movies = [];
   }
 }
