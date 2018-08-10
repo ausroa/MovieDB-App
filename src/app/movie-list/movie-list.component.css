@@ -1,0 +1,17 @@
+#addRow {
+  text-align: center;
+  margin-top: 50px;
+}
+
+input {
+  width: 50%;
+}
+
+#buttonRow {
+  text-align: center;
+  margin-top: 5px;
+}
+
+#buttonRow .btn-success {
+  margin-right: 5px;
+}

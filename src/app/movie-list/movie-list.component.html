@@ -1,0 +1,20 @@
+<div class="row" id="addRow">
+  <div class="col-xs-12">
+    <input type="text"
+    #movieInput>
+  </div>
+  <div class="row">
+    <div class="col-xs-12"
+    id="buttonRow">
+      <button class="btn btn-success"
+              (click)="onAddMovie(movieInput.value)"
+              type="submit">
+        Add Movie
+      </button>
+      <button class="btn btn-danger"
+      (click)="onRemoveMovie()">
+        Remove Movie
+      </button>
+    </div>
+  </div>
+</div>
